@@ -15,7 +15,9 @@ def binarize(data, col_name):
          mapping[val] = id+1
 
     label = data[col_name].map(mapping)
-    data = pd.concat([data, pd.DataFrame(lb(label, classes=cls))], axis=1)
+    chunk = pd.DataFrame(lb(label, classes=cls))
+    chunk.columns = ['%s_%s' %(col_name, x) for x in chunk.columns]
+    data = pd.concat([data, chunk], axis=1)
 
     # drop the orginal column
     data = data.drop(col_name, axis = 1)
@@ -30,6 +32,8 @@ def munge(fname):
          m, std = {}, {}
     else:
          m, std = pd.read_csv('mean.csv'), pd.read_csv('std.csv')
+         m.set_index('attr', inplace=True)
+         std.set_index('attr', inplace=True)
          
     for col in cols:
          # only binarize columns with character values
@@ -45,8 +49,8 @@ def munge(fname):
                    m[col] = u
                    std[col] = sigma
               else:
-                   u = m[m.attr==col]['mean']
-                   sigma = std[std.attr==col]['std']
+                   u = m.loc[col]['mean']
+                   sigma = std.loc[col]['std']
               data[col] = (data[col] - u)/sigma
 
     if fname == 'train':    
@@ -67,3 +71,5 @@ def munge(fname):
     data.to_csv(fname+'_clean.csv', index=False)
 
     return data
+if __name__ == '__main__':
+    munge('train')
