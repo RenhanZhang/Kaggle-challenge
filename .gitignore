@@ -1,4 +1,4 @@
-*.csv
+SF crime classification/*.csv
 .DS_Store
 *.pyc
 
