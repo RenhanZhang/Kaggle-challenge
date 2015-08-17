@@ -10,7 +10,7 @@ from sklearn.ensemble import BaggingRegressor
 import os.path
 import re
 import matplotlib.pyplot as plt
-# feature selection
+
 from data_munge import munge
 
 if os.path.isfile('train_clean.csv'):
@@ -31,7 +31,7 @@ for c in X.columns:
 X = pd.concat([pd.DataFrame(np.ones(len(y))), X], axis = 1)
 
 base_estimator = GradientBoostingRegressor(n_estimators=1000, loss='ls', verbose = 2)
-clf = BaggingRegressor(base_estimator=base_estimator, n_estimators=20, oob_score=True, n_jobs=-1)
+clf = BaggingRegressor(base_estimator=base_estimator, n_estimators=10, oob_score=True, n_jobs=-1)
 #clf = GradientBoostingRegressor(n_estimators=2000, loss='huber', verbose = 2)
 #clf = RandomForestRegressor(n_estimators=5000, n_jobs=-1)
 #clf = rg(alpha=0.1)

@@ -1,0 +1,311 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"para",
+				"param_tuning"
+			],
+			[
+				"drop",
+				"drop"
+			],
+			[
+				"train",
+				"train_clean"
+			],
+			[
+				"l",
+				"linear_model"
+			],
+			[
+				"col",
+				"col_to_remove"
+			],
+			[
+				"wor",
+				"worst_col"
+			],
+			[
+				"co",
+				"column"
+			],
+			[
+				"colu",
+				"columns"
+			],
+			[
+				"get",
+				"get_text"
+			],
+			[
+				"que",
+				"question_text"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/rhzhang/Desktop/Kaggle challenge/Property Inspection Prediction/feature_selection_log.txt",
+		"/Users/rhzhang/Library/Application Support/Sublime Text 3/Packages/User/Python.sublime-settings",
+		"/Users/rhzhang/Desktop/Kaggle challenge/Property Inspection Prediction/mean.csv",
+		"/Users/rhzhang/Desktop/Kaggle challenge/Property Inspection Prediction/utilities.py",
+		"/Users/rhzhang/Desktop/LinguisticEthnography/fg.txt",
+		"/Users/rhzhang/Desktop/research-project/files/TextVisualize/LinguisticEthnography/README",
+		"/Users/rhzhang/Desktop/research-project/files/TextVisualize/LinguisticEthnography/EthnolingClasses.pl",
+		"/Users/rhzhang/Desktop/research-project/files/templates/blog_search_result.html",
+		"/Users/rhzhang/Desktop/liwc_exp.txt",
+		"/Users/rhzhang/Desktop/test.py",
+		"/Users/rhzhang/Desktop/t.html",
+		"/Users/rhzhang/Desktop/liwcexp.txt",
+		"/Users/rhzhang/Desktop/research-project/files/templates/google_linechart.html",
+		"/Users/rhzhang/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/rhzhang/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/rhzhang/Desktop/post.txt",
+		"/Users/rhzhang/Desktop/LinguisticEthnography/EthnolingClasses.pl",
+		"/Users/rhzhang/Desktop/LinguisticEthnography/README",
+		"/Users/rhzhang/Desktop/research-project/files/DB_Handling/db_account.txt",
+		"/Users/rhzhang/Desktop/research proj/files/ntusurvey/settings.py",
+		"/Users/rhzhang/Downloads/ntusurvey-master/ntusurvey/urls.py",
+		"/Users/rhzhang/Desktop/research proj/files/ntusurvey/urls.py",
+		"/Users/rhzhang/Downloads/ntusurvey-master/ntusurvey/settings.py",
+		"/Users/rhzhang/Downloads/GeoIP.dat",
+		"/Users/rhzhang/Desktop/blog_search_result.html",
+		"/Users/rhzhang/Desktop/research proj/files/templates/home.html",
+		"/Users/rhzhang/Desktop/SF crime classification/new.py",
+		"/Users/rhzhang/Desktop/xgboost-master 2/demo/data/agaricus.txt.train",
+		"/Users/rhzhang/Desktop/484/Project/proj1/google link.txt",
+		"/Users/rhzhang/Desktop/xgboost-master 2/demo/README.md",
+		"/Users/rhzhang/Desktop/research proj/files/templates/blog_search_result.html",
+		"/Users/rhzhang/Desktop/research proj/files/run.sh",
+		"/Users/rhzhang/Desktop/research proj/files/templates/search_page.html",
+		"/Users/rhzhang/Desktop/untitled.html",
+		"/Users/rhzhang/Downloads/gdata-python-client-master/samples/blogger/BloggerExample.py",
+		"/Users/rhzhang/Desktop/research proj/files/TextProcess/LinguisticEthnography/EthnolingWords.pl",
+		"/Users/rhzhang/Desktop/research proj/files/google api/client_secret_935486324426-r76qmcks4nlm013au3ad5qggdk3nhj0h.apps.googleusercontent.com.json",
+		"/Users/rhzhang/Downloads/client_secret_935486324426-r76qmcks4nlm013au3ad5qggdk3nhj0h.apps.googleusercontent.com.json",
+		"/Users/rhzhang/Desktop/Research Project/mysite/templates/search_form.html",
+		"/Users/rhzhang/Desktop/tut/files/templates/search_form.html",
+		"/Users/rhzhang/Desktop/tut/files/templates/search_page.html",
+		"/Users/rhzhang/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/6FD05180-C70E-4AE0-ADFD-4FFBD59680FC/myView/src/main/java/blogs/scrape/ScrapeProfiles.java",
+		"/Users/rhzhang/Desktop/Research Project/mysite/mysite/templates/admin/base_site.html",
+		"/Users/rhzhang/Desktop/tut/files/books/models.py",
+		"/Users/rhzhang/Desktop/Research Project/mysite/mysite/settings.py",
+		"/Users/rhzhang/Desktop/Research Project/mysite/polls/models.py",
+		"/Users/rhzhang/Desktop/Research Project/mysite/templates/admin/base_site.html",
+		"/Users/rhzhang/Desktop/Research Project/mysite/polls/admin.py",
+		"/Users/rhzhang/Desktop/Research Project/mysite/manage.py",
+		"/Users/rhzhang/Desktop/Research Project/mysite/polls/tests.py",
+		"/Users/rhzhang/Desktop/SF crime classification/run.sh",
+		"/Users/rhzhang/Desktop/run.sh",
+		"/Users/rhzhang/Downloads/穷中谈吃.舒国治.txt"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"numer",
+			"SVR",
+			"ones",
+			"drop",
+			"on duplicate",
+			"'",
+			"insert",
+			"cause",
+			":",
+			".js",
+			"head",
+			"EthnolingWords",
+			"dictiona",
+			"class",
+			"translate_tabs_to_spaces",
+			"background",
+			"populateInstantMessagingInfo",
+			"document",
+			"populateInterestingCategories",
+			"bloggerApiKey",
+			"services(",
+			"services",
+			"service(",
+			"service",
+			"gdata",
+			"bloggerService",
+			"time",
+			"open_files_in_new_window",
+			"db"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "main.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 220.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

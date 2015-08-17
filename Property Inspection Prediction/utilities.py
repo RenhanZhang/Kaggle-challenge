@@ -1,28 +1,30 @@
 import pandas as pd
 from sklearn.svm import SVR
-from sklearn import cross_validation
+from sklearn import cross_validation, grid_search
 from matplotlib import pyplot as plt
 from sklearn.linear_model import Ridge as rg
+from sklearn.ensemble import GradientBoostingRegressor
 import sklearn
+from sklearn.externals import joblib
 import re
 import os
-train = pd.read_csv('train.csv')
-test = pd.read_csv('test.csv')
-
-num_cols = train._get_numeric_data().columns
 
 
 def display_unique():
     # check if the categorical columns in train and test data have the same unique values
+    train = pd.read_csv('train.csv')
+    test = pd.read_csv('test.csv')
+    num_cols = train._get_numeric_data().columns
     for col in train.columns:
         if col in num_cols:
             continue
-        print '-------------%s----------------' %col
+        print '-------------%s----------------' % col
         ta = sorted(train[col].unique())
         te = sorted(test[col].unique())
         print ta == te
         print ta
         print te
+
 
 def var_select():
     if os.path.exists('feature_selection_log.txt'):
@@ -49,8 +51,8 @@ def var_select():
         if len(remain_cols) <= min_features:
             break
         best_score = -1
-        
-        print 'Round %s' %(len(dropped_cols)+1)
+
+        print 'Round %s' % (len(dropped_cols)+1)
         # find the worst col to drop
         for col in remain_cols:
             x = X[[c for c in X.columns if not re.match(col, c)]]
@@ -66,7 +68,7 @@ def var_select():
         X = X[[c for c in X.columns if not re.match(worst_col, c)]]
 
         with open('feature_selection_log.txt', 'a') as f:
-            f.write('\n--------Round %s, score %s -----------\n' %(len(dropped_cols), best_score))
+            f.write('\n--------Round %s, score %s -----------\n' % (len(dropped_cols), best_score))
             f.write(', '.join(sorted(dropped_cols)))
         
         num_features.append(len(remain_cols))
@@ -76,4 +78,17 @@ def var_select():
     plt.ylabel('accuracy score')
     plt.savefig('feature_selection.png')
 
-var_select()
+
+def param_tuning(base_estimator, param, cv=5):
+    data = pd.read_csv('train_clean.csv')
+    X = data.drop(['Id', 'Hazard'], axis=1)
+    y = data.Hazard
+    clf = grid_search.GridSearchCV(estimator=base_estimator, param_grid=param, cv=cv, n_jobs=-1)
+    clf.fit(X, y)
+    return clf
+
+base_estimator = GradientBoostingRegressor(verbose=2)
+param = {'loss': ['ls', 'lad', 'huber'], 'n_estimators': [100, 1000, 1500, 2000]}
+clf = param_tuning(base_estimator, param)
+joblib.dump(clf, 'cv_models/gradient_boosting.pkl') 
+
