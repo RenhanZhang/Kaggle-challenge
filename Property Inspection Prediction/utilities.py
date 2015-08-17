@@ -3,6 +3,7 @@ from sklearn.svm import SVR
 from sklearn import cross_validation
 from matplotlib import pyplot as plt
 from sklearn.linear_model import Ridge as rg
+import sklearn
 import re
 import os
 train = pd.read_csv('train.csv')
@@ -27,7 +28,8 @@ def var_select():
     if os.path.exists('feature_selection_log.txt'):
         os.remove('feature_selection_log.txt')
     #clf = SVR()
-    clf = rg(alpha=0.1)
+    #clf = rg(alpha=0.1)
+    clf = sklearn.linear_model.Lasso(alpha=0.1)
     min_features = 1
 
     #raw_cols = [u'T1_V1', u'T1_V2', u'T1_V3', u'T1_V4', u'T1_V5', u'T1_V6', u'T1_V7']
@@ -52,13 +54,13 @@ def var_select():
         # find the worst col to drop
         for col in remain_cols:
             x = X[[c for c in X.columns if not re.match(col, c)]]
-            score = cross_validation.cross_val_score(clf, x, y, cv=3).mean()
+            score = cross_validation.cross_val_score(clf, x, y, cv=5).mean()
 
             if score > best_score:
                 best_score = score
                 worst_col = col
         
-        dropped_cols.append(worst_col)
+        dropped_cols.append('\''+worst_col+'\'')
         
         remain_cols.remove(worst_col)
         X = X[[c for c in X.columns if not re.match(worst_col, c)]]
