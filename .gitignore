@@ -3,5 +3,6 @@
 */train_clean.csv
 */test_clean.csv
 .DS_Store
+SF crime classfication/submission.csv
 *.pyc
 
