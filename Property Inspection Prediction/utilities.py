@@ -9,7 +9,6 @@ from sklearn.externals import joblib
 import re
 import os
 
-
 def display_unique():
     # check if the categorical columns in train and test data have the same unique values
     train = pd.read_csv('train.csv')
@@ -86,9 +85,9 @@ def param_tuning(base_estimator, param, cv=5):
     clf = grid_search.GridSearchCV(estimator=base_estimator, param_grid=param, cv=cv, n_jobs=-1)
     clf.fit(X, y)
     return clf
-
+'''
 base_estimator = GradientBoostingRegressor(verbose=2)
 param = {'loss': ['ls', 'lad', 'huber'], 'n_estimators': [100, 1000, 1500, 2000]}
 clf = param_tuning(base_estimator, param)
 joblib.dump(clf, 'cv_models/gradient_boosting.pkl') 
-
+'''
