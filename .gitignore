@@ -4,4 +4,4 @@
 */test_clean.csv
 .DS_Store
 *.pyc
-SF crime classification/submission.csv
+SF\ crime\ classification/submission.csv
