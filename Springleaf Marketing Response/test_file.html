@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>Search a blog</title>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    
+    <script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    var options = {
+      width: 400,
+      height: 240,
+      animation: {
+        duration: 1000,
+        easing: 'in'
+      },
+      hAxis: {viewWindow: {min:0, max:5}}
+    };
+
+    var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+
+
+    var data = google.visualization.arrayToDataTable(
+        [["Date", "Google", "new", "people", "will", "--"], ["2015-07-24 00:00:00", 5, 0, 9, 4, 6], ["2015-07-27 00:00:00", 11, 3, 7, 6, 0], ["2015-07-29 00:00:00", 4, 3, 2, 0, 0], ["2015-08-07 00:00:00", 1, 1, 1, 0, 9], ["2015-08-10 00:00:00", 18, 15, 3, 11, 2], ["2015-08-14 00:00:00", 7, 0, 4, 0, 3], ["2015-08-18 00:00:00", 3, 5, 0, 1, 0]]
+        );
+
+    var prevButton = document.getElementById('b1');
+    var nextButton = document.getElementById('b2');
+    var changeZoomButton = document.getElementById('b3');
+    function drawChart() {
+      // Disabling the button while the chart is drawing.
+      prevButton.disabled = true;
+      nextButton.disabled = true;
+      changeZoomButton.disabled = true;
+      google.visualization.events.addListener(chart, 'ready',
+          function() {
+            prevButton.disabled = options.hAxis.viewWindow.min <= 0;
+            nextButton.disabled = options.hAxis.viewWindow.max >= MAX;
+            changeZoomButton.disabled = false;
+          });
+      chart.draw(data, options);
+    }
+
+    prevButton.onclick = function() {
+      options.hAxis.viewWindow.min -= 1;
+      options.hAxis.viewWindow.max -= 1;
+      drawChart();
+    }
+    nextButton.onclick = function() {
+      options.hAxis.viewWindow.min += 1;
+      options.hAxis.viewWindow.max += 1;
+      drawChart();
+    }
+    var zoomed = false;
+    changeZoomButton.onclick = function() {
+      if (zoomed) {
+        options.hAxis.viewWindow.min = 0;
+        options.hAxis.viewWindow.max = 5;
+      } else {
+        options.hAxis.viewWindow.min = 0;
+        options.hAxis.viewWindow.max = MAX;
+      }
+      zoomed = !zoomed;
+      drawChart();
+    }
+    drawChart();
+  </script>
+
+</head>
+
+
+<body>
+  <button type="button" id="b1">button 1</button>
+  <button type="button" id="b2">button 2</button>
+  <button type="button" id="b3">button 3</button>
+
+    <h1>You searched blog {{blog_name}}</h1>
+    <!--div id="columnchart_material" style="width: 900px; height: 500px;"></div-->
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    <br><br><br>
+    <img height="600" width="800" alt="embedded" src="data:image/png;base64,{{word_cloud}}"/>
+
+    <h2>Most dominating word classes found in {{blog_name}}:</h2>
+    {% for class in le_classes %}
+        <h3>{{ class }}</h3>
+    {% endfor %}
+    <!--img height="400" width="600" alt="embedded" src="data:image/png;base64,{{wf_vs_time}}"/-->
+    <h2>Below are the contents of some of the posts</h2>
+    {% for post in posts %}
+        <p>{{ post.content }}</p>
+    {% endfor %}
+
+
+</body>
+</html>

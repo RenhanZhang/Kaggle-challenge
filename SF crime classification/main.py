@@ -35,9 +35,20 @@ train_prepared = None
 print 'Fitting...'
 start_time = time.time()
 
-#clf = BernoulliNB()
-#clf = svm.SVC(verbose=True)
-clf = RandomForestClassifier(n_estimators = 150)
+agg_predictions = []
+
+rfc = RandomForestClassifier(n_estimators=200)
+rfc.fit(X,y)
+agg_predictions.append(pd.DataFrame(rfc.predict_proba(X)))
+
+gbc = GradientBoostingClassifier(n_estimators=1000, loss='lad', verbose=2)
+gbc.fit(X,y)
+agg_predictions.append(pd.DataFrame(gbc.predict_proba(X)))
+
+agg_predictions = pd.concat(agg_predictions, axis=1)
+
+aggregator = LogisticRegression(penalty='l2', C=1, multi_class='multinomial')
+aggregator.fit(agg_predictions, )
 #clf = LogisticRegression(penalty='l2', C=1)
 #clf = GradientBoostingClassifier(n_estimators=100, learning_rate=0.05, max_depth=3, random_state=0).fit(X,y)
 clf.fit(X,y)
